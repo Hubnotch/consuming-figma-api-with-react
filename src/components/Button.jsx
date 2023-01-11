@@ -1,34 +1,39 @@
 import React from 'react'
-import { figmaJSON } from '../api/Api'
+// import { data } from '../api/Api'
 
-const Button = () => {
-    const width = figmaJSON.document?.children[0]?.children[0]?.absoluteRenderBounds?.width ?? '500px'
-    const height = figmaJSON?.document?.children[0]?.children[0]?.absoluteRenderBounds?.height ?? '500px'
-    const r = figmaJSON.document?.children[0]?.children[0]?.backgroundColor.r ?? '255'
-    const g = figmaJSON.document?.children[0]?.children[0]?.backgroundColor.g ?? '255'
-    const b = figmaJSON.document?.children[0]?.children[0]?.backgroundColor.b ?? '255'
-    const a = figmaJSON.document?.children[0]?.children[0]?.backgroundColor.a ?? '255'
-    const radius = figmaJSON.document?.children[0]?.children[0]?.cornerRadius ?? '4'
-    const paddingLeft = figmaJSON.document?.children[0]?.children[0]?.children[0].paddingLeft ?? '8'
-    const paddingRight = figmaJSON.document?.children[0]?.children[0]?.children[0].paddingRight ?? '8'
-    const paddingBottom = figmaJSON.document?.children[0]?.children[0]?.children[0].paddingBottom ?? '6'
-    const paddingTop = figmaJSON.document?.children[0]?.children[0]?.children[0].paddingTop ?? '6'
+const Button = ({ data}) => {
+    const width = data.document?.children[0]?.children[0]?.absoluteRenderBounds?.width ?? '500px'
+    const height = data?.document?.children[0]?.children[0]?.absoluteRenderBounds?.height ?? '500px'
+    const r = data.document?.children[0]?.children[0]?.backgroundColor.r ?? '255'
+    const g = data.document?.children[0]?.children[0]?.backgroundColor.g ?? '255'
+    const b = data.document?.children[0]?.children[0]?.backgroundColor.b ?? '255'
+    const a = data.document?.children[0]?.children[0]?.backgroundColor.a ?? '255'
+    const radius = data.document?.children[0]?.children[0]?.cornerRadius ?? '4'
+    const paddingLeft = data.document?.children[0]?.children[0]?.children[0].paddingLeft ?? '8'
+    const paddingRight = data.document?.children[0]?.children[0]?.children[0].paddingRight ?? '8'
+    const paddingBottom = data.document?.children[0]?.children[0]?.children[0].paddingBottom ?? '6'
+    const paddingTop = data.document?.children[0]?.children[0]?.children[0].paddingTop ?? '6'
 
-
-    const iconheight = figmaJSON?.document?.children[0]?.children[0]?.children[0].absoluteBoundingBox?.height ?? '64px'
-    const iconwidth = figmaJSON?.document?.children[0]?.children[0]?.children[0].absoluteBoundingBox?.width ?? '64px'
-    const iconRadius = figmaJSON?.document?.children[0]?.children[0]?.children[0].cornerRadius ?? '100px'
-    const iconBgColorR = figmaJSON?.document?.children[0]?.children[0]?.children[0].backgroundColor.r ?? '0.9'
-    const iconBgColorG = figmaJSON?.document?.children[0]?.children[0]?.children[0].backgroundColor.g ?? '0.9'
-    const iconBgColorB = figmaJSON?.document?.children[0]?.children[0]?.children[0].backgroundColor.b ?? '0.9'
-    const iconBgColorA = figmaJSON?.document?.children[0]?.children[0]?.children[0].backgroundColor.a ?? '0.9'
+    const iconheight = data?.document?.children[0]?.children[0]?.children[0].absoluteBoundingBox?.height ?? '64px'
+    const iconwidth = data?.document?.children[0]?.children[0]?.children[0].absoluteBoundingBox?.width ?? '64px'
+    const iconRadius = data?.document?.children[0]?.children[0]?.children[0].cornerRadius ?? '100px'
+    const iconBgColorR = data?.document?.children[0]?.children[0]?.children[0].backgroundColor.r ?? '0.9'
+    const iconBgColorG = data?.document?.children[0]?.children[0]?.children[0].backgroundColor.g ?? '0.9'
+    const iconBgColorB = data?.document?.children[0]?.children[0]?.children[0].backgroundColor.b ?? '0.9'
+    const iconBgColorA = data?.document?.children[0]?.children[0]?.children[0].backgroundColor.a ?? '0.9'
     
-const headerText = figmaJSON?.document?.children[0]?.children[0]?.children[0]?.children[0]?.characters
-const fontFamily = figmaJSON?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.fontFamily
-const fontSize = figmaJSON?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.fontSize
-const fontWeight = figmaJSON?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.fontWeight
-const lineHeightPx = figmaJSON?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.lineHeightPx
-    
+const headerText = data?.document?.children[0]?.children[0]?.children[0]?.children[0]?.characters
+const fontFamily = data?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.fontFamily
+const fontSize = data?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.fontSize
+const fontWeight = data?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.fontWeight
+const lineHeightPx = data?.document?.children[0]?.children[0]?.children[0]?.children[0]?.style?.lineHeightPx
+
+
+const subHeaderText = data?.document?.children[0]?.children[0]?.children[0]?.children[1]?.characters
+const subHeaderfontFamily = data?.document?.children[0]?.children[0]?.children[0]?.children[1]?.style?.fontFamily
+const subHeaderfontSize = data?.document?.children[0]?.children[0]?.children[0]?.children[1]?.style?.fontSize
+const subHeaderfontWeight = data?.document?.children[0]?.children[0]?.children[0]?.children[1]?.style?.fontWeight
+const subHeaderlineHeightPx = data?.document?.children[0]?.children[0]?.children[0]?.children[1]?.style?.lineHeightPx
     console.log(paddingTop);
     const buttonStyle = {
         height: height,
@@ -55,10 +60,18 @@ const lineHeightPx = figmaJSON?.document?.children[0]?.children[0]?.children[0]?
         lineHeigth: lineHeightPx,
         
     }
+    const subHeader = {
+        color: 'white',
+        fontFamily: subHeaderfontFamily,
+        fontSize: subHeaderfontSize,
+        fontWeight: subHeaderfontWeight,
+        lineHeigth: subHeaderlineHeightPx
+    }
     return (
         <button style={buttonStyle}>
             <div style={iconStyle} ></div>
-            <h3 style={headerStyle}>{headerText }</h3>
+            <h3 style={headerStyle}>{headerText}</h3>
+            <h3 style={subHeader}>{subHeaderText }</h3>
         </button>
     )
 }

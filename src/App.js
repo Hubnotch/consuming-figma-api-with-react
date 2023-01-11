@@ -11,7 +11,8 @@ function App() {
   const TOKEN = 'figd_dN1neMPKHHmnDFU4AFlSMPwv6ZqLqK_ANxk7hj3l';
   const HOST_URL = 'https://api.figma.com/v1/files/vRCqsniN1t2PndqlKeYQwI';
   const [data, setData] = useState([]);
-  const [error,setError] = useState('')
+  const [error, setError] = useState('')
+
 
   const fetchData = async () => {
     try {
@@ -34,37 +35,10 @@ function App() {
       .catch(error => setError(error));
   }, []);
 
-  // const [groups, setGroupsData] = useState([]);
-
-  // useEffect(() => {
-  //   const getFigmaApiResponse = async () => {
-  //     try {
-  //       const apiResponse = await axios.get(HOST_URL, {
-  //         headers: {
-  //           'X-Figma-Token': TOKEN
-  //         }
-  //       });
-  //       // console.log('shey e dey work',apiResponse.data.styles);
-  //       setGroupsData(apiResponse.data);
-  //     } catch (e) {
-  //       console.log(e.message);
-  //       throw Error
-  //     }
-  //   };
-
-  //   getFigmaApiResponse();
-  // }, []);
-
-  // console.log('All the groups == > ', groups);
-  // console.log('document ',groups.document);
-  // // console.log('Component ',groups.components);
-  // // console.log('componentSets ',groups.componentSets);
-  // // console.log('Styles',groups.styles);
-  // // console.log('All the groups in array == > ',Object.entries(groups));
 
   return (
     <div className="App">
-      <Button />
+ <Button data={data}/>
     </div>
   );
 }
