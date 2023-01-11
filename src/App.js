@@ -1,15 +1,16 @@
 // import axios from 'axios';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css';
+// import { useEffect, useState } from 'react';
 
+import './App.css';
+import Button from './components/Button';
 
 function App() {
 
   // const { TOKEN, HOST_URL } = process.env;
-  const TOKEN = 'igd_dN1neMPKHHmnDFU4AFlSMPwv6ZqLqK_ANxk7hj3l';
-  const HOST_URL = 'https://api.figma.com/v1/files/vRCqsniN1t2PndqlKeYQwI';
-  const [data, setData] = useState([]);
+
+  // const TOKEN = 'figd_dN1neMPKHHmnDFU4AFlSMPwv6ZqLqK_ANxk7hj3l';
+  // const HOST_URL = 'https://api.figma.com/v1/files/vRCqsniN1t2PndqlKeYQwI';
+  // const [data, setData] = useState([]);
 
   // const fetchData = async () => {
   //   try {
@@ -32,32 +33,37 @@ function App() {
   //   //   .catch(error => setError(error));
   // }, []);
 
-  const [groups, setGroupsData] = useState(null);
+  // const [groups, setGroupsData] = useState([]);
 
-  useEffect(() => {
-    const getUserMetadata = async () => {
-      try {
-        const accessToken = TOKEN
-        const groupData = await axios.get( HOST_URL, {
-          headers: {
-            'X-Figma-Token': 'figd_dN1neMPKHHmnDFU4AFlSMPwv6ZqLqK_ANxk7hj3l'
-          }
-        });
-        console.log('shey e dey work',groupData.data.styles);
-        setGroupsData(groupData);
-      } catch (e) {
-        console.log(e.message);
-        throw Error
-      }
-    };
+  // useEffect(() => {
+  //   const getFigmaApiResponse = async () => {
+  //     try {
+  //       const apiResponse = await axios.get(HOST_URL, {
+  //         headers: {
+  //           'X-Figma-Token': TOKEN
+  //         }
+  //       });
+  //       // console.log('shey e dey work',apiResponse.data.styles);
+  //       setGroupsData(apiResponse.data);
+  //     } catch (e) {
+  //       console.log(e.message);
+  //       throw Error
+  //     }
+  //   };
 
-    getUserMetadata();
-  }, []);
+  //   getFigmaApiResponse();
+  // }, []);
 
+  // console.log('All the groups == > ', groups);
+  // console.log('document ',groups.document);
+  // // console.log('Component ',groups.components);
+  // // console.log('componentSets ',groups.componentSets);
+  // // console.log('Styles',groups.styles);
+  // // console.log('All the groups in array == > ',Object.entries(groups));
 
   return (
     <div className="App">
-hello 
+      <Button />
     </div>
   );
 }
